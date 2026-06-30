@@ -39,7 +39,7 @@ void Fraction::normalize(){
 Fraction& Fraction::operator+=(const Fraction& other){
   //fraction es this, other es con quien operamos (a , b) other = b
   numerator = numerator * other.denominator + other.numerator * denominator;
-  denominator = denominator * other denominator;
+  denominator = denominator * other.denominator;
   normalize();
   return *this;
 }
@@ -68,7 +68,7 @@ Fraction operator*(const Fraction& a, const Fraction& b){
 Fraction operator/(const Fraction& a, const Fraction& b){
   if (b.num() == 0)
       throw std::invalid_argument("division por cero no esta definida");
-  return Fraction(a.num() * b.den(), a.den() * b.den());
+  return Fraction(a.num() * b.den(), a.den() * b.num());
 }
 
 bool operator==(const Fraction& a, const Fraction& b){
