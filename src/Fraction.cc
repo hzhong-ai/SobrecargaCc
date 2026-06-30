@@ -25,10 +25,15 @@ int Fraction::den() const {
 }
 
 void Fraction::normalize(){
-  // TODO: normalizar la fraccion.
-  // Sugerencia:
   // 1. Si denominator < 0, mover el signo al numerador.
+  if (denominator < 0){
+    numerator *= -1; 
+    denominator *= -1;
+  }
   // 2. Usar std::gcd para reducir numerator y denominator.
+  int g = std::gcd(std::abs(numerator), denominator); //std::gcd( , ) falla con numeros negativos
+  numerator /= g;
+  denominator /=g;
 }
 
 Fraction& Fraction::operator+=(const Fraction& other){
