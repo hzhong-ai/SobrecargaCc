@@ -72,45 +72,27 @@ Fraction operator/(const Fraction& a, const Fraction& b){
 }
 
 bool operator==(const Fraction& a, const Fraction& b){
-  // TODO: implementar igualdad.
-  (void)a;
-  (void)b;
-  return false;
+  return (a.num() == b.num() && a.den() == b.den());
 }
 
 bool operator!=(const Fraction& a, const Fraction& b){
-  // TODO: implementar usando operator==.
-  (void)a;
-  (void)b;
-  return false;
+  return( !(a == b));
 }
 
 bool operator<(const Fraction& a, const Fraction& b){
-  // TODO: implementar usando productos cruzados.
-  (void)a;
-  (void)b;
-  return false;
+  return( a.num() * b.den() < b.num() * a.den());
 }
 
 bool operator<=(const Fraction& a, const Fraction& b){
-  // TODO: implementar usando operator< y operator==.
-  (void)a;
-  (void)b;
-  return false;
+  return (a < b) || (a == b);
 }
 
 bool operator>(const Fraction& a, const Fraction& b){
-  // TODO: implementar usando operator<.
-  (void)a;
-  (void)b;
-  return false;
+  return(b < a);
 }
 
 bool operator>=(const Fraction& a, const Fraction& b){
-  // TODO: implementar usando operator<.
-  (void)a;
-  (void)b;
-  return false;
+  return !(a < b);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f){
