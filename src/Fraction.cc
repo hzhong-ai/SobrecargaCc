@@ -96,14 +96,22 @@ bool operator>=(const Fraction& a, const Fraction& b){
 }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f){
-  // TODO: imprimir con el formato numerador/denominador.
-  (void)f;
+  os << f.num() << "/" << f.den();
   return os;
 }
 
 std::istream& operator>>(std::istream& is, Fraction& f){
-  // TODO: leer con el formato numerador/denominador.
-  // Si la entrada es invalida, marcar failbit y no modificar f.
-  (void)f;
+  int num, den;
+  char slash;
+
+  is >> num >> slash >> den;
+
+  if (!is || slash != '/' || den == 0) {
+    is.setstate(std::ios::failbit);
+    return is;
+  }
+
+  f = Fraction(num, den);
   return is;
 }
+
