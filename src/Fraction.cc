@@ -62,17 +62,13 @@ Fraction operator-(Fraction a, const Fraction& b){
 }
 
 Fraction operator*(const Fraction& a, const Fraction& b){
-  // TODO: implementar multiplicacion.
-  (void)a;
-  (void)b;
-  return Fraction(0, 1);
+  return Fraction(a.num() * b.num(), a.den() * b.den());
 }
 
 Fraction operator/(const Fraction& a, const Fraction& b){
-  // TODO: implementar division y rechazar division por fraccion cero.
-  (void)a;
-  (void)b;
-  return Fraction(0, 1);
+  if (b.num() == 0)
+      throw std::invalid_argument("division por cero no esta definida");
+  return Fraction(a.num() * b.den(), a.den() * b.den());
 }
 
 bool operator==(const Fraction& a, const Fraction& b){
