@@ -52,14 +52,12 @@ Fraction& Fraction::operator-=(const Fraction& other){
 }
 
 Fraction operator+(Fraction a, const Fraction& b){
-  // TODO: reutilizar operator+=.
-  (void)b;
+  a += b;
   return a;
 }
 
 Fraction operator-(Fraction a, const Fraction& b){
-  // TODO: reutilizar operator-=.
-  (void)b;
+  a -= b;
   return a;
 }
 
